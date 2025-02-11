@@ -72,4 +72,4 @@ if [[ ! $GITHUB_ACTIONS == "true" ]]; then
 fi
 setup_zstd
 
-cd $CURR_DIR
+cd "${CURR_DIR}"
