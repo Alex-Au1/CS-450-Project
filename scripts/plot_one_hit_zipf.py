@@ -135,7 +135,9 @@ def cal_one_hit_ratio_zipf_multiple_times(alphas, n_total_obj, n_times):
 
 def plot_one_hit_ratio_zipf():
     linestyles = itertools.cycle(reversed(get_linestyles()))
-    n_total_obj = 1000000
+
+    # The original number is 1000000 (1 million), but Python is too slow...
+    n_total_obj = 10000
 
     one_hit_ratio_dict = cal_one_hit_ratio_zipf_multiple_times(
         [
