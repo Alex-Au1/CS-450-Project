@@ -30,6 +30,7 @@ set(sourceC
         FIFO_Merge.c
         FIFO_Reinsertion.c
 
+        S3FIFO_v1.c
         S3FIFO.c
         S3FIFOd.c
 

@@ -139,6 +139,9 @@ cache_t *QDLP_init(const common_cache_params_t ccache_params,
 cache_t *S3LRU_init(const common_cache_params_t ccache_params,
                     const char *cache_specific_params);
 
+cache_t *S3FIFO_v1_init(const common_cache_params_t ccache_params,
+                     const char *cache_specific_params);
+
 cache_t *S3FIFO_init(const common_cache_params_t ccache_params,
                      const char *cache_specific_params);
 
