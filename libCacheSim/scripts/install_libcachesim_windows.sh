@@ -8,7 +8,7 @@ DIR=$(dirname "${SOURCE}")
 cd "${DIR}/../";
 mkdir "_build" || true 2>/dev/null;
 cd "_build";
-cmake ..;
+cmake ..
 make -j;
 cd "${DIR}"; 
 
