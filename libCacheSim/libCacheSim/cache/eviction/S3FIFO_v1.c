@@ -31,13 +31,16 @@ typedef struct {
   cache_t *fifo;
   cache_t *fifo_ghost;
   cache_t *main_cache;
+  cache_t *lru_cache;
   bool hit_on_ghost;
 
   int64_t n_obj_admit_to_fifo;
   int64_t n_obj_admit_to_main;
+  int64_t n_obj_admit_to_lru;
   int64_t n_obj_move_to_main;
   int64_t n_byte_admit_to_fifo;
   int64_t n_byte_admit_to_main;
+  int64_t n_byte_admit_to_lru;
   int64_t n_byte_move_to_main;
 
   int move_to_main_threshold;
@@ -82,21 +85,21 @@ static void S3FIFO_evict_v1_main(cache_t *cache, const request_t *req);
 // ****                                                               ****
 // ***********************************************************************
 
-cache_t *S3FIFO__v1init(const common_cache_params_t ccache_params,
+cache_t *S3FIFO_v1_init(const common_cache_params_t ccache_params,
                      const char *cache_specific_params) {
   cache_t *cache =
       cache_struct_init("S3FIFO_v1", ccache_params, cache_specific_params);
-  cache->cache_init = S3FIFO_init;
-  cache->cache_free = S3FIFO_free;
-  cache->get = S3FIFO_get;
-  cache->find = S3FIFO_find;
-  cache->insert = S3FIFO_insert;
-  cache->evict = S3FIFO_evict;
-  cache->remove = S3FIFO_remove;
-  cache->to_evict = S3FIFO_to_evict;
-  cache->get_n_obj = S3FIFO_get_n_obj;
-  cache->get_occupied_byte = S3FIFO_get_occupied_byte;
-  cache->can_insert = S3FIFO_can_insert;
+  cache->cache_init = S3FIFO_v1_init;
+  cache->cache_free = S3FIFO_v1_free;
+  cache->get = S3FIFO_v1_get;
+  cache->find = S3FIFO_v1_find;
+  cache->insert = S3FIFO_v1_insert;
+  cache->evict = S3FIFO_v1_evict;
+  cache->remove = S3FIFO_v1_remove;
+  cache->to_evict = S3FIFO_v1_to_evict;
+  cache->get_n_obj = S3FIFO_v1_get_n_obj;
+  cache->get_occupied_byte = S3FIFO_v1_get_occupied_byte;
+  cache->can_insert = S3FIFO_v1_can_insert;
 
   cache->obj_md_size = 0;
 
@@ -130,8 +133,10 @@ cache_t *S3FIFO__v1init(const common_cache_params_t ccache_params,
     params->fifo_ghost = NULL;
   }
 
+  
   ccache_params_local.cache_size = main_cache_size;
   params->main_cache = FIFO_init(ccache_params_local, NULL);
+  params->lru_cache = LRU_init(ccache_params_local, NULL);
 
 #if defined(TRACK_EVICTION_V_AGE)
   if (params->fifo_ghost != NULL) {
@@ -139,6 +144,7 @@ cache_t *S3FIFO__v1init(const common_cache_params_t ccache_params,
   }
   params->fifo->track_eviction_age = false;
   params->main_cache->track_eviction_age = false;
+  params->lru_cache->track_eviction_age = false;
 #endif
 
   snprintf(cache->cache_name, CACHE_NAME_ARRAY_LEN, "S3FIFO_v1-%.4lf-%d",
@@ -160,6 +166,7 @@ static void S3FIFO_v1_free(cache_t *cache) {
     params->fifo_ghost->cache_free(params->fifo_ghost);
   }
   params->main_cache->cache_free(params->main_cache);
+  params->lru_cache->cache_free(params->lru_cache); 
   free(cache->eviction_params);
   cache_struct_free(cache);
 }
@@ -223,9 +230,12 @@ static cache_obj_t *S3FIFO_v1_find(cache_t *cache, const request_t *req,
     if (obj != NULL) {
       return obj;
     }
+    obj = params->lru_cache->find(params->lru_cache, req, false);
+    if (obj != NULL) {
+      return obj;
+    }
     return NULL;
   }
-
   /* update cache is true from now */
   params->hit_on_ghost = false;
   cache_obj_t *obj = params->fifo->find(params->fifo, req, true);
@@ -262,7 +272,13 @@ static cache_obj_t *S3FIFO_v1_find(cache_t *cache, const request_t *req,
 static cache_obj_t *S3FIFO_v1_insert(cache_t *cache, const request_t *req) {
   S3FIFO_v1_params_t *params = (S3FIFO_v1_params_t *)cache->eviction_params;
   cache_obj_t *obj = NULL;
-
+  // if (params->hit_on_ghost && obj->S3FIFO_v1.freq >= params->move_to_main_threshold) {
+  //   params->hit_on_ghost = false;
+  //   params->n_obj_admit_to_lru += 1;
+  //   params->n_byte_admit_to_lru += req->obj_size;
+  //   obj = params->lru_cache->insert(params->lru_cache, req);
+  // } else
+  
   if (params->hit_on_ghost) {
     /* insert into the ARC */
     params->hit_on_ghost = false;
@@ -421,6 +437,13 @@ static void S3FIFO_v1_evict(cache_t *cache, const request_t *req) {
   cache_t *fifo = params->fifo;
   cache_t *ghost = params->fifo_ghost;
   cache_t *main = params->main_cache;
+  // cache_t *lru = params->lru_cache;
+
+  // // Check if the LRU cache is full
+  // if (lru->get_occupied_byte(lru) >= lru->cache_size) {
+  //   // Evict from the LRU cache if it is full
+  //   lru->evict(lru, req);
+  // }
 
   if (main->get_occupied_byte(main) > main->cache_size ||
       fifo->get_occupied_byte(fifo) == 0) {
@@ -449,6 +472,7 @@ static bool S3FIFO_v1_remove(cache_t *cache, const obj_id_t obj_id) {
   removed = removed || (params->fifo_ghost &&
                         params->fifo_ghost->remove(params->fifo_ghost, obj_id));
   removed = removed || params->main_cache->remove(params->main_cache, obj_id);
+  removed = removed || params->lru_cache->remove(params->lru_cache, obj_id); 
 
   return removed;
 }
@@ -456,19 +480,22 @@ static bool S3FIFO_v1_remove(cache_t *cache, const obj_id_t obj_id) {
 static inline int64_t S3FIFO_v1_get_occupied_byte(const cache_t *cache) {
   S3FIFO_v1_params_t *params = (S3FIFO_v1_params_t *)cache->eviction_params;
   return params->fifo->get_occupied_byte(params->fifo) +
-         params->main_cache->get_occupied_byte(params->main_cache);
+         params->main_cache->get_occupied_byte(params->main_cache)
+         + params->lru_cache->get_occupied_byte(params->lru_cache);
 }
 
 static inline int64_t S3FIFO_v1_get_n_obj(const cache_t *cache) {
   S3FIFO_v1_params_t *params = (S3FIFO_v1_params_t *)cache->eviction_params;
   return params->fifo->get_n_obj(params->fifo) +
-         params->main_cache->get_n_obj(params->main_cache);
+         params->main_cache->get_n_obj(params->main_cache)
+         +params->lru_cache->get_n_obj(params->lru_cache);
 }
 
 static inline bool S3FIFO_v1_can_insert(cache_t *cache, const request_t *req) {
   S3FIFO_v1_params_t *params = (S3FIFO_v1_params_t *)cache->eviction_params;
 
-  return req->obj_size <= params->fifo->cache_size;
+  return req->obj_size <= params->fifo->cache_size
+        ||req->obj_size <= params->lru_cache->cache_size;
 }
 
 // ***********************************************************************
@@ -477,9 +504,9 @@ static inline bool S3FIFO_v1_can_insert(cache_t *cache, const request_t *req) {
 // ****                                                               ****
 // ***********************************************************************
 static const char *S3FIFO_v1_current_params(S3FIFO_v1_params_t *params) {
-  static __thread char params_str[128];
-  snprintf(params_str, 128, "fifo-size-ratio=%.4lf,main-cache=%s\n",
-           params->fifo_size_ratio, params->main_cache->cache_name);
+  static __thread char params_str[256];
+  snprintf(params_str, 256, "fifo-size-ratio=%.4lf,main-cache=%s,lru-cache%s\n",
+           params->fifo_size_ratio, params->main_cache->cache_name, params->lru_cache->cache_name);
   return params_str;
 }
 
