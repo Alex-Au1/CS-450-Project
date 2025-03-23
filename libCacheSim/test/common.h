@@ -58,6 +58,13 @@ static reader_t *setup_oracleGeneralBin_reader(void) {
   return reader_oracle;
 }
 
+static reader_t *setup_toy_reader(void) {
+  char data_path[1024];
+  _detect_data_path(data_path, "toy_trace.oracleGeneral.bin");
+  reader_t *reader_oracle = setup_reader(data_path, ORACLE_GENERAL_TRACE, NULL);
+  return reader_oracle;
+}
+
 static reader_t *setup_GLCacheTestData_reader(void) {
   char *url =
       "https://ftp.pdl.cmu.edu/pub/datasets/twemcacheWorkload/"
@@ -230,6 +237,8 @@ static cache_t *create_test_cache(const char *alg_name,
     cache = QDLP_init(cc_params, "fifo-size-ratio=0.10,main-cache=Clock2");
   } else if (strcasecmp(alg_name, "S3-FIFO") == 0) {
     cache = S3FIFO_init(cc_params, "move-to-main-threshold=2");
+  } else if (strcasecmp(alg_name, "S5-FIFO") == 0) {
+    cache = S5FIFO_init(cc_params, "move-to-main-threshold=2");
   } else if (strcasecmp(alg_name, "Sieve") == 0) {
     cache = Sieve_init(cc_params, NULL);
   } else {

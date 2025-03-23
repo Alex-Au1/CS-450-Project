@@ -168,7 +168,7 @@ def load_miss_ratio_reduction_from_dir(data_dir_path, algos, metric="miss_ratio"
     for f in sorted(glob.glob(data_dir_path + "/*")):
         # a list of miss ratio dict (algo -> miss ratio) at different cache sizes
         miss_ratio_dict_list = load_data(f, metric)
-        # print(f, sorted(miss_ratio_dict_list[2].keys()))
+        print(f, sorted(miss_ratio_dict_list[2].keys()))
 
         if len(mr_reduction_dict_list) == 0:
             mr_reduction_dict_list = [

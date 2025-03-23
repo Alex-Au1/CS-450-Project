@@ -311,7 +311,7 @@ static inline void record_log2_eviction_age(cache_t *cache, const unsigned long 
 }
 
 static inline void record_eviction_age(cache_t *cache, cache_obj_t *obj,
-                                       const int64_t age) {
+                                       int64_t age) {
 #if defined(TRACK_EVICTION_V_AGE)
   // note that the frequency is not correct for QDLP and Clock
   if (obj->obj_id % 101 == 0) {
@@ -319,8 +319,10 @@ static inline void record_eviction_age(cache_t *cache, cache_obj_t *obj,
   }
 #endif
 
+  age = abs(age);
+
   double log_base = log(EVICTION_AGE_LOG_BASE);
-  int age_log = age == 0 ? 0 : (int)ceil(log((double)age) / log_base);
+  int age_log = age <= 0 ? 0 : (int)ceil(log((double)age) / log_base);
   cache->log_eviction_age_cnt[age_log] += 1;
 }
 

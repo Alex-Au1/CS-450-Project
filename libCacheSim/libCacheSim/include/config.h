@@ -49,7 +49,7 @@ extern "C" {
 #endif
 
 // #define TRACK_EVICTION_V_AGE
-// #define TRACK_DEMOTION
+// // #define TRACK_DEMOTION
 // #define TRACK_CREATE_TIME
 
 #if defined(TRACK_EVICTION_V_AGE) || defined(TRACK_DEMOTION) || \
