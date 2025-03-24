@@ -319,10 +319,16 @@ static inline void record_eviction_age(cache_t *cache, cache_obj_t *obj,
   }
 #endif
 
-  age = abs(age);
+  // It is assumed that 'age' is non-negative.
+  //
+  // If 'age' is negative, then 'age_log' will be some random garbage value (logarithm of a negative number?!)
+  // and you will get a seg fault from accessing some illegal memory that you do not own
+  //
+  // Instead of setting some special behaviour that handles 'age' being negative which may not be accurate,
+  // let the seg fault happend, and find it using gdb to remind you that 'age' should not be negative.
 
   double log_base = log(EVICTION_AGE_LOG_BASE);
-  int age_log = age <= 0 ? 0 : (int)ceil(log((double)age) / log_base);
+  int age_log = age == 0 ? 0 : (int)ceil(log((double)age) / log_base);
   cache->log_eviction_age_cnt[age_log] += 1;
 }
 
