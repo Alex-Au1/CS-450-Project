@@ -9,6 +9,11 @@ set(${PROJECT_NAME}_VERSION_PATCH 0)
 set(${PROJECT_NAME}_RELEASE_VERSION ${${PROJECT_NAME}_VERSION_MAJOR}.${${PROJECT_NAME}_VERSION_MINOR})
 set(${PROJECT_NAME}_VERSION ${${PROJECT_NAME}_RELEASE_VERSION}.${${PROJECT_NAME}_VERSION_PATCH})
 
+###########
+# Uncomment the below to enable debugging flags (for gdb)
+#
+# set(CMAKE_BUILD_TYPE Debug)
+
 
 ########################################
 # define options #

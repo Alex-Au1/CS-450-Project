@@ -37,6 +37,8 @@ set(sourceC
         other/S3LRU.c
 
         Sieve.c
+
+        S5FIFO.c
 )
 
 if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/priv")
