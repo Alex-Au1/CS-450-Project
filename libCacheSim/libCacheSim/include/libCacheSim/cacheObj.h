@@ -118,6 +118,12 @@ typedef struct {
 } S3FIFO_obj_metadata_t;
 
 typedef struct {
+    int64_t insertion_time;   // measured in number of objects inserted
+    int64_t freq;
+    int32_t main_insert_freq;
+} S4FIFO_obj_metadata_t;
+
+typedef struct {
   int64_t insertion_time;   // measured in number of objects inserted
   int64_t freq;
   int32_t main_insert_freq;
@@ -179,6 +185,7 @@ typedef struct cache_obj {
     QDLP_obj_metadata_t QDLP;
     LIRS_obj_metadata_t LIRS;
     S3FIFO_obj_metadata_t S3FIFO;
+    S4FIFO_obj_metadata_t S4FIFO;
     S5FIFO_obj_metadata_t S5FIFO;
     myclock_obj_params_t myclock;
     Sieve_obj_params_t sieve;
