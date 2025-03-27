@@ -18,6 +18,7 @@ logger.setLevel(logging.INFO)
 def plot_scatter(datapath, size_idx=0, metric="miss_ratio"):
     algo_list = [
         "S5FIFO-0.1000-2",
+        "S4FIFO-0.1000-2",
         "S3FIFO-0.1000-2",
         "LRU",
     ]
@@ -38,7 +39,7 @@ def plot_scatter(datapath, size_idx=0, metric="miss_ratio"):
     print(datasets)
 
     datasets = [
-        "FIU",
+        # "FIU",
         "MSR"
     ]
 
@@ -146,6 +147,7 @@ def plot_percentiles(datapath, size_idx=0, metric="miss_ratio"):
 
     algo_list = [
         "S5FIFO-0.1000-2",
+        "S4FIFO-0.1000-2",
         "S3FIFO-0.1000-2",
         "LRU",
     ]

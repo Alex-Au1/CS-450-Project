@@ -1,5 +1,5 @@
-
 import glob
+
 
 def dedep(datapath):
 
@@ -12,7 +12,6 @@ def dedep(datapath):
             if line not in lines_set:
                 f.write(line)
                 lines_set.add(line)
-
 
 
 def update_algo_name(algo):
@@ -28,7 +27,7 @@ def update_algo_name(algo):
         "lru": "LRU",
         "b-lru": "B-LRU",
         "S4LRU(25:25:25:25)": "SLRU",
-        "FIFO_Merge_FREQUENCY": "FIFO-Merge", 
+        "FIFO_Merge_FREQUENCY": "FIFO-Merge",
         "WTinyLFU-w0.01-SLRU": "TinyLFU",
         "WTinyLFU-w0.10-SLRU": "TinyLFU-0.1",
         "lhd": "LHD",
@@ -37,41 +36,38 @@ def update_algo_name(algo):
         "S3FIFO": "S3-FIFO",
         "S5FIFO": "S5-FIFO",
         "S5FIFO-0.1000-2": "S3-FIFO",
-        "S3FIFO-0.1000-2": "S5-FIFO"
-
-        # "S3LRU-LRU-lru-0-0.1000-1":         "S3-LRU-LRU-L-1", 
-        # "S3LRU-LRU-lru-1-0.1000-1":         "S3-LRU-LRU-E-1", 
-        # "S3LRU-LRU-clock2-0-0.1000-1":         "S3-LRU-FIFO-L-1", 
-        # "S3LRU-LRU-clock2-1-0.1000-1":         "S3-LRU-FIFO-E-1", 
-        # "S3LRU-LRU-lru-0-0.1000-2":         "S3-LRU-LRU-L", 
-        # "S3LRU-LRU-lru-1-0.1000-2":         "S3-LRU-LRU-E", 
-        # "S3LRU-LRU-clock2-0-0.1000-2":         "S3-LRU-FIFO-L", 
-        # "S3LRU-LRU-clock2-1-0.1000-2":         "S3-LRU-FIFO-E", 
-
-        # "S3LRU-FIFO-lru-0-0.1000-1":         "S3-FIFO-LRU-L-1", 
-        # "S3LRU-FIFO-lru-1-0.1000-1":         "S3-FIFO-LRU-E-1", 
-        # "S3LRU-FIFO-clock2-0-0.1000-1":         "S3-FIFO-FIFO-L-1", 
-        # "S3LRU-FIFO-clock2-1-0.1000-1":         "S3-FIFO-FIFO-E-1", 
-        # "S3LRU-FIFO-lru-0-0.1000-2":         "S3-FIFO-LRU-L", 
-        # "S3LRU-FIFO-lru-1-0.1000-2":         "S3-FIFO-LRU-E", 
-        # "S3LRU-FIFO-clock2-0-0.1000-2":         "S3-FIFO-FIFO-L", 
-        # "S3LRU-FIFO-clock2-1-0.1000-2":         "S3-FIFO-FIFO-E", 
-
+        "S4FIFO-0.1000-2": "S4-FIFO",
+        "S3FIFO-0.1000-2": "S5-FIFO",
+        # "S3LRU-LRU-lru-0-0.1000-1":         "S3-LRU-LRU-L-1",
+        # "S3LRU-LRU-lru-1-0.1000-1":         "S3-LRU-LRU-E-1",
+        # "S3LRU-LRU-clock2-0-0.1000-1":         "S3-LRU-FIFO-L-1",
+        # "S3LRU-LRU-clock2-1-0.1000-1":         "S3-LRU-FIFO-E-1",
+        # "S3LRU-LRU-lru-0-0.1000-2":         "S3-LRU-LRU-L",
+        # "S3LRU-LRU-lru-1-0.1000-2":         "S3-LRU-LRU-E",
+        # "S3LRU-LRU-clock2-0-0.1000-2":         "S3-LRU-FIFO-L",
+        # "S3LRU-LRU-clock2-1-0.1000-2":         "S3-LRU-FIFO-E",
+        # "S3LRU-FIFO-lru-0-0.1000-1":         "S3-FIFO-LRU-L-1",
+        # "S3LRU-FIFO-lru-1-0.1000-1":         "S3-FIFO-LRU-E-1",
+        # "S3LRU-FIFO-clock2-0-0.1000-1":         "S3-FIFO-FIFO-L-1",
+        # "S3LRU-FIFO-clock2-1-0.1000-1":         "S3-FIFO-FIFO-E-1",
+        # "S3LRU-FIFO-lru-0-0.1000-2":         "S3-FIFO-LRU-L",
+        # "S3LRU-FIFO-lru-1-0.1000-2":         "S3-FIFO-LRU-E",
+        # "S3LRU-FIFO-clock2-0-0.1000-2":         "S3-FIFO-FIFO-L",
+        # "S3LRU-FIFO-clock2-1-0.1000-2":         "S3-FIFO-FIFO-E",
         # "QDLPv1-0.1000-0.9000-sfifo-1": "S3-FIFO-sfifo",
         # "QDLPv1-0.1000-0.9000-sfifo-2": "S3-FIFO-sfifo-2",
         # "S3FIFOd-0.1000-1": "S3FIFOd",
-
         # "QDLPv1-0.1000-0.9000-Clock2": "S3-FIFO",
         # "QDLPv1-0.1000-0.9000-Clock2-2": "S3-FIFO",
         # "QDLPv1-0.10-clock2": "S3-FIFO-0.10",
-        # "QDLPv2-Clock2": "S3-FIFO-D", 
+        # "QDLPv2-Clock2": "S3-FIFO-D",
     }
 
     name_update_dict2 = {}
     for o, n in name_update_dict.items():
         name_update_dict2[o.lower()] = n
     name_update_dict = name_update_dict2
-    
+
     return name_update_dict[algo.lower()]
 
 
@@ -99,4 +95,3 @@ if __name__ == "__main__":
     DATAPATH = "/disk/result/libCacheSim/result_lecar/"
     for f in glob.glob(DATAPATH + "/*/*.zst"):
         dedep(f)
-
