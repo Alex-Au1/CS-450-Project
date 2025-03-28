@@ -111,6 +111,8 @@ static inline cache_t *create_cache(const char *trace_path,
     cache = S3FIFO_init(cc_params, eviction_params);
   } else if (strcasecmp(eviction_algo, "s3fifod") == 0) {
     cache = S3FIFOd_init(cc_params, eviction_params);
+  } else if (strcasecmp(eviction_algo, "s3fifod2") == 0) {
+    cache = S3FIFOd2_init(cc_params, eviction_params);
   } else if (strcasecmp(eviction_algo, "s5fifo") == 0) {
     cache = S5FIFO_init(cc_params, eviction_params);
   } else if (strcasecmp(eviction_algo, "s4fifo") == 0) {

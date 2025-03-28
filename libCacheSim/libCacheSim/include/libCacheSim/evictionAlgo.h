@@ -91,6 +91,10 @@ cache_t *LRU_init(const common_cache_params_t ccache_params,
 cache_t *S5FIFO_init(const common_cache_params_t ccache_params,
                      const char *cache_specific_params);
 
+
+cache_t *S3FIFOd2_init(const common_cache_params_t ccache_params,
+                       const char *cache_specific_params);
+
 cache_t *S4FIFO_init(const common_cache_params_t ccache_params,
                      const char *cache_specific_params);
 
