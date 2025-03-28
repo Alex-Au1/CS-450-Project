@@ -5,6 +5,7 @@ __pycache__
 *.pyc
 *.pdf
 *.zst
+!result/project cachesim/all_with_s4/**
 *.cachesim
 *.pickle
 **/dep/**

@@ -21,17 +21,17 @@ Algos = {
     "S3FIFO-0.1000-2": "#ef8a62",
     "S4FIFO-0.1000-2": "#67a9cf",
     "S5FIFO-0.1000-2": "#b2182b",
-    "S3FIFOd-Clock2-1": "#fddbc7",
-    "S3FIFOd2-Clock2-1": "#f7f7f7",
+    # "S3FIFOd-Clock2-1": "#fddbc7",
+    # "S3FIFOd2-Clock2-1": "#f7f7f7",
     "LRU": "#d1e5f0",
-    "S3LFU-lfu-1-0.1000-1": "#e82ebd",
+    # "FIFO": "#e82ebd",
 }
 
 Datasets = [
     "FIU",
     "MSR",
-    "Cloudphysics",
-    "AlibabaBlock"
+    # "Cloudphysics",
+    # "AlibabaBlock"
 ]
 
 # ===========================================
@@ -42,11 +42,7 @@ def plot_scatter(datapath, size_idx=0, metric="miss_ratio"):
 
     name_list = [update_algo_name(algo) for algo in algo_list]
     markers = itertools.cycle("<>^osp**")
-    colors = itertools.cycle(
-        reversed(
-            list(Algos.values())
-        )
-    )
+    colors = itertools.cycle(reversed(list(Algos.values())))
 
     datasets = os.listdir(datapath)
     print(datasets)

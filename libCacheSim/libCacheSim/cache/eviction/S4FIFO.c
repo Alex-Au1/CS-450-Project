@@ -124,12 +124,14 @@ cache_t *S4FIFO_init(const common_cache_params_t ccache_params,
   params->fifo = FIFO_init(ccache_params_local, NULL);
 
   if (fifo_ghost_cache_size > 0) {
-    ccache_params_local.cache_size = fifo_ghost_cache_size / 2;
+    int64_t s = fifo_ghost_cache_size / 2;
+    ccache_params_local.cache_size = s;
 
     params->fifo_ghost = FIFO_init(ccache_params_local, NULL);
     snprintf(params->fifo_ghost->cache_name, CACHE_NAME_ARRAY_LEN,
              "FIFO-ghost");
 
+    ccache_params_local.cache_size = s;
     params->fifo_ghost_2 = FIFO_init(ccache_params_local, NULL);
     snprintf(params->fifo_ghost_2->cache_name, CACHE_NAME_ARRAY_LEN,
         "FIFO-ghost-2");
@@ -377,10 +379,18 @@ static void S4FIFO_evict_fifo(cache_t *cache, const request_t *req) {
       // insert to ghost
       if (ghost != NULL) {
         //ghost->get(ghost, params->req_local);
-        while (ghost->get_occupied_byte(ghost) + req->obj_size + ghost->obj_md_size > ghost->cache_size) {
-            cache_obj_t *to_evict = ghost->to_evict(ghost, NULL);
-            ghost->evict(ghost, NULL);
-            ghost_2->get(ghost_2, to_evict);
+        if (ghost->cache_size == 0) {
+            ghost_2->get(ghost, params->req_local);
+        } else
+        if (ghost->get_occupied_byte(ghost) + req->obj_size + ghost->obj_md_size <= ghost->cache_size) {
+            ghost->get(ghost, params->req_local);
+        } else {
+            while (ghost->get_occupied_byte(ghost) + req->obj_size + ghost->obj_md_size > ghost->cache_size) {
+                cache_obj_t *to_evict = ghost->to_evict(ghost, NULL);
+                copy_cache_obj_to_request(params->req_local, to_evict);
+                ghost->evict(ghost, NULL);
+                ghost_2->get(ghost_2, params->req_local);
+            }
         }
     }
       has_evicted = true;
