@@ -159,7 +159,7 @@ def plot_mrc_size(
     frame.set_edgecolor("0.9")
     plt.grid(linestyle="--")
     plt.savefig("{}.pdf".format(name), bbox_inches="tight")
-    plt.show()
+    # plt.show()
     plt.clf()
     print("plot is saved to {}.pdf".format(name))
 
@@ -173,7 +173,7 @@ def run():
     import glob
 
     cachesim_path = "/proj/redundancy-PG0/jason/libCacheSim/_build/cachesim"
-    algos = "s5fifo,s4fifo,s3fifo"
+    algos = "fifo,s5fifo,s4fifo,s3fifo,s3lfu,lfu,lru"
     cache_sizes = "0.01,0.02,0.05,0.075,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.5,0.6,0.7,0.8"
 
     for tracepath in glob.glob("/disk/data/*.zst"):
@@ -192,7 +192,7 @@ def run():
 
 if __name__ == "__main__":
     default_args = {
-        "algos": "s5fifo,s4fifo,s3fifo",
+        "algos": "fifo,s5fifo,s4fifo,s3fifo,s3lfu,lfu,lru",
         "sizes": "0.001,0.005,0.01,0.02,0.05,0.10,0.20,0.40",
     }
     import argparse
@@ -203,7 +203,7 @@ if __name__ == "__main__":
         + "--tracepath ../data/twitter_cluster52.csv "
         "--trace-format csv "
         '--trace-format-params="time-col=1,obj-id-col=2,obj-size-col=3,delimiter=,,obj-id-is-num=1" '
-        "--algos=s5fifo,s4fifo,s3fifo"
+        "--algos=s5fifo,s4fifo,s3fifo,s3lfu"
     )
     p.add_argument("--tracepath", type=str, required=True)
     p.add_argument(
