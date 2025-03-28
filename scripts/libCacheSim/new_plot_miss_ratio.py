@@ -16,7 +16,7 @@ logger.setLevel(logging.INFO)
 
 
 # =========== PARAMETERS ====================
-
+# comment out the algorithms, datasets that should not be included in plot
 Algos = {
     "S3FIFO-0.1000-2": "#ef8a62",
     "S4FIFO-0.1000-2": "#67a9cf",
@@ -24,6 +24,7 @@ Algos = {
     "S3FIFOd-Clock2-1": "#fddbc7",
     "S3FIFOd2-Clock2-1": "#f7f7f7",
     "LRU": "#d1e5f0",
+    "S3LFU-lfu-1-0.1000-1": "#e82ebd",
 }
 
 Datasets = [
@@ -100,7 +101,8 @@ def plot_scatter(datapath, size_idx=0, metric="miss_ratio"):
     #     plt.xlim(left=-0.04)
     if size_idx == 2:
         #     plt.text(-0.063, 11.72, "<---TinyLFU -0.11", fontsize=28, )
-        plt.xlim(left=-0.02)
+        # plt.xlim(left=-0.02)
+        pass
     # elif size_idx == 1:
     #     pass
 
