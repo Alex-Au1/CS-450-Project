@@ -1,0 +1,69 @@
+# S4-FIFO 80/20
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size       69, 918010 req, miss ratio 0.8749, byte miss ratio 0.8749
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      209, 918010 req, miss ratio 0.8559, byte miss ratio 0.8559
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      699, 918010 req, miss ratio 0.8513, byte miss ratio 0.8513
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     2099, 918010 req, miss ratio 0.8420, byte miss ratio 0.8420
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     6996, 918010 req, miss ratio 0.8317, byte miss ratio 0.8317
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    13993, 918010 req, miss ratio 0.6662, byte miss ratio 0.6662
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    27986, 918010 req, miss ratio 0.5138, byte miss ratio 0.5138
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    55973, 918010 req, miss ratio 0.0891, byte miss ratio 0.0891
+
+# S4-FIFO 60/40
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size       69, 918010 req, miss ratio 0.8815, byte miss ratio 0.8815
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      209, 918010 req, miss ratio 0.8574, byte miss ratio 0.8574
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      699, 918010 req, miss ratio 0.8516, byte miss ratio 0.8516
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     2099, 918010 req, miss ratio 0.8425, byte miss ratio 0.8425
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     6996, 918010 req, miss ratio 0.8320, byte miss ratio 0.8320
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    13993, 918010 req, miss ratio 0.8185, byte miss ratio 0.8185
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    27986, 918010 req, miss ratio 0.4674, byte miss ratio 0.4674
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    55973, 918010 req, miss ratio 0.0891, byte miss ratio 0.0891
+
+# S4-FIFO 40/60
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size       69, 918010 req, miss ratio 0.9059, byte miss ratio 0.9059
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      209, 918010 req, miss ratio 0.8601, byte miss ratio 0.8601
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      699, 918010 req, miss ratio 0.8520, byte miss ratio 0.8520
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     2099, 918010 req, miss ratio 0.8438, byte miss ratio 0.8438
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     6996, 918010 req, miss ratio 0.8321, byte miss ratio 0.8321
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    13993, 918010 req, miss ratio 0.8291, byte miss ratio 0.8291
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    27986, 918010 req, miss ratio 0.4240, byte miss ratio 0.4240
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    55973, 918010 req, miss ratio 0.0891, byte miss ratio 0.0891
+
+# S4-FIFO 20/80
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size       69, 918010 req, miss ratio 0.9242, byte miss ratio 0.9242
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      209, 918010 req, miss ratio 0.8636, byte miss ratio 0.8636
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      699, 918010 req, miss ratio 0.8530, byte miss ratio 0.8530
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     2099, 918010 req, miss ratio 0.8462, byte miss ratio 0.8462
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     6996, 918010 req, miss ratio 0.8324, byte miss ratio 0.8324
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    13993, 918010 req, miss ratio 0.8316, byte miss ratio 0.8316
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    27986, 918010 req, miss ratio 0.5779, byte miss ratio 0.5779
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    55973, 918010 req, miss ratio 0.0891, byte miss ratio 0.0891
+
+# S4-FIFO 0/100
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size       69, 918010 req, miss ratio 0.9659, byte miss ratio 0.9659
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      209, 918010 req, miss ratio 0.9048, byte miss ratio 0.9048
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      699, 918010 req, miss ratio 0.8579, byte miss ratio 0.8579
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     2099, 918010 req, miss ratio 0.8471, byte miss ratio 0.8471
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     6996, 918010 req, miss ratio 0.8327, byte miss ratio 0.8327
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    13993, 918010 req, miss ratio 0.8319, byte miss ratio 0.8319
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    27986, 918010 req, miss ratio 0.7786, byte miss ratio 0.7786
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    55973, 918010 req, miss ratio 0.0883, byte miss ratio 0.0883
+
+# S3-FIFO
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size       69, 918010 req, miss ratio 0.8691, byte miss ratio 0.8691
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      209, 918010 req, miss ratio 0.8555, byte miss ratio 0.8555
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size      699, 918010 req, miss ratio 0.8507, byte miss ratio 0.8507
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     2099, 918010 req, miss ratio 0.8415, byte miss ratio 0.8415
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size     6996, 918010 req, miss ratio 0.8317, byte miss ratio 0.8317
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    13993, 918010 req, miss ratio 0.6617, byte miss ratio 0.6617
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    27986, 918010 req, miss ratio 0.5341, byte miss ratio 0.5341
+result/fiu_madmax-110108-112108.oracleGeneral.zst                  S4FIFO-0.1000-2 cache size    55973, 918010 req, miss ratio 0.0891, byte miss ratio 0.0891
+
+# FIFO
+result/fiu_madmax-110108-112108.oracleGeneral.zst                             FIFO cache size       69, 918010 req, miss ratio 0.9621, byte miss ratio 0.9621
+result/fiu_madmax-110108-112108.oracleGeneral.zst                             FIFO cache size      209, 918010 req, miss ratio 0.9136, byte miss ratio 0.9136
+result/fiu_madmax-110108-112108.oracleGeneral.zst                             FIFO cache size      699, 918010 req, miss ratio 0.8791, byte miss ratio 0.8791
+result/fiu_madmax-110108-112108.oracleGeneral.zst                             FIFO cache size     2099, 918010 req, miss ratio 0.8551, byte miss ratio 0.8551
+result/fiu_madmax-110108-112108.oracleGeneral.zst                             FIFO cache size     6996, 918010 req, miss ratio 0.8391, byte miss ratio 0.8391
+result/fiu_madmax-110108-112108.oracleGeneral.zst                             FIFO cache size    13993, 918010 req, miss ratio 0.8364, byte miss ratio 0.8364
+result/fiu_madmax-110108-112108.oracleGeneral.zst                             FIFO cache size    27986, 918010 req, miss ratio 0.7828, byte miss ratio 0.7828
+result/fiu_madmax-110108-112108.oracleGeneral.zst                             FIFO cache size    55973, 918010 req, miss ratio 0.1428, byte miss ratio 0.1428
