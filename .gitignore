@@ -10,6 +10,7 @@ __pycache__
 **/dep/**
 .DS_Store
 .vscode
+run_traces.sh
 
 # Folders for local build
 data

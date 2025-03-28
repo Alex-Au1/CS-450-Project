@@ -19,6 +19,7 @@ logger.setLevel(logging.INFO)
 
 Algos = {
     "S3FIFO-0.1000-2": "#ef8a62",
+    "S4FIFO-0.1000-2": "#67a9cf",
     "S5FIFO-0.1000-2": "#b2182b",
     "S3FIFOd-Clock2-1": "#fddbc7",
     "S3FIFOd2-Clock2-1": "#f7f7f7",
