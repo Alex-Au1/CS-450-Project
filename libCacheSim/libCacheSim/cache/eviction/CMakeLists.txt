@@ -40,6 +40,7 @@ set(sourceC
 
         S5FIFO.c
         S4FIFO.c
+        S3LFU.c
 )
 
 if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/priv")

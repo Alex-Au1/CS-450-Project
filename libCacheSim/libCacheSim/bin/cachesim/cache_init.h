@@ -115,6 +115,8 @@ static inline cache_t *create_cache(const char *trace_path,
     cache = S5FIFO_init(cc_params, eviction_params);
   } else if (strcasecmp(eviction_algo, "s4fifo") == 0) {
     cache = S4FIFO_init(cc_params, eviction_params);
+  } else if (strcasecmp(eviction_algo, "s3lfu") == 0) {
+    cache = S3LFU_init(cc_params, eviction_params);
   } else if (strcasecmp(eviction_algo, "qdlp") == 0) {
     cache = QDLP_init(cc_params, eviction_params);
   } else if (strcasecmp(eviction_algo, "sieve") == 0) {

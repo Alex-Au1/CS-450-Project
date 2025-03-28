@@ -20,7 +20,9 @@ def plot_scatter(datapath, size_idx=0, metric="miss_ratio"):
         "S5FIFO-0.1000-2",
         "S4FIFO-0.1000-2",
         "S3FIFO-0.1000-2",
+        "S3LFU-0.1000-2",
         "LRU",
+        "LFU"
     ]
 
     name_list = [update_algo_name(algo) for algo in algo_list]
@@ -149,7 +151,9 @@ def plot_percentiles(datapath, size_idx=0, metric="miss_ratio"):
         "S5FIFO-0.1000-2",
         "S4FIFO-0.1000-2",
         "S3FIFO-0.1000-2",
+        "S3LFU-0.1000-2",
         "LRU",
+        "LFU"
     ]
 
     name_list = [update_algo_name(algo) for algo in algo_list]
