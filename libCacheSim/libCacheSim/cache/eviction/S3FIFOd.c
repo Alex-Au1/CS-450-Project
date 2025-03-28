@@ -211,6 +211,8 @@ static void S3FIFOd_update_fifo_size(cache_t *cache, const request_t *req) {
         params->main_cache->cache_size += step;
       }
     }
+
+    // seems weird/buggy, but the paper did not specify how to reset the hit counts
     params->fifo_eviction_hit = params->fifo_eviction_hit * 0.8;
     params->main_eviction_hit = params->main_eviction_hit * 0.8;
   }

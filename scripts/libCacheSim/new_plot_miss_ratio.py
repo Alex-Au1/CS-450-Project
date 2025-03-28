@@ -15,32 +15,41 @@ logger = logging.getLogger("plot_miss_ratio")
 logger.setLevel(logging.INFO)
 
 
+# =========== PARAMETERS ====================
+
+Algos = {
+    "S3FIFO-0.1000-2": "#ef8a62",
+    "S5FIFO-0.1000-2": "#b2182b",
+    "S3FIFOd-Clock2-1": "#fddbc7",
+    "S3FIFOd2-Clock2-1": "#f7f7f7",
+    "LRU": "#d1e5f0",
+}
+
+Datasets = [
+    "FIU",
+    "MSR",
+    "Cloudphysics",
+    "AlibabaBlock"
+]
+
+# ===========================================
+
+
 def plot_scatter(datapath, size_idx=0, metric="miss_ratio"):
-    algo_list = [
-        "S5FIFO-0.1000-2",
-        "S3FIFO-0.1000-2",
-        "LRU",
-    ]
+    algo_list = list(Algos.keys())
 
     name_list = [update_algo_name(algo) for algo in algo_list]
     markers = itertools.cycle("<>^osp**")
     colors = itertools.cycle(
         reversed(
-            [
-                "#b2182b",
-                "#ef8a62",
-                "#fddbc7",
-            ]
+            list(Algos.values())
         )
     )
 
     datasets = os.listdir(datapath)
     print(datasets)
 
-    datasets = [
-        "FIU",
-        "MSR"
-    ]
+    datasets = Datasets
 
     dataset_to_mr_reduction = {}
     plt.figure(figsize=(28, 10.8))
@@ -144,11 +153,7 @@ def plot_percentiles(datapath, size_idx=0, metric="miss_ratio"):
         datapath (str): path to result data
     """
 
-    algo_list = [
-        "S5FIFO-0.1000-2",
-        "S3FIFO-0.1000-2",
-        "LRU",
-    ]
+    algo_list = list(Algos.keys())
 
     name_list = [update_algo_name(algo) for algo in algo_list]
 

@@ -36,8 +36,11 @@ def update_algo_name(algo):
         "FIFO": "FIFO",
         "S3FIFO": "S3-FIFO",
         "S5FIFO": "S5-FIFO",
-        "S5FIFO-0.1000-2": "S3-FIFO",
-        "S3FIFO-0.1000-2": "S5-FIFO"
+        "S5FIFO-0.1000-2": "S5-FIFO",
+        "S3FIFO-0.1000-2": "S3-FIFO",
+        "S3FIFOd-Clock2-1": "S3-FIFO-D",
+        "S3FIFOd2-Clock2-1": "S3-FIFO-DR"
+
 
         # "S3LRU-LRU-lru-0-0.1000-1":         "S3-LRU-LRU-L-1", 
         # "S3LRU-LRU-lru-1-0.1000-1":         "S3-LRU-LRU-E-1", 
