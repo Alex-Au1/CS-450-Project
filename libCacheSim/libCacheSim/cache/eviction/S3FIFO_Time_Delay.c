@@ -22,6 +22,7 @@
 
 #include "../../dataStructure/hashtable/hashtable.h"
 #include "../../include/libCacheSim/evictionAlgo.h"
+#include <time.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -231,9 +232,23 @@ static cache_obj_t *S3FIFO_TIME_DELAY_find(cache_t *cache, const request_t *req,
   cache_obj_t *obj = params->fifo->find(params->fifo, req, true);
   if (obj != NULL) {
     obj->S3FIFO_TIME_DELAY.freq += 1;
-    //obj->S3FIFO_TIME_DELAY.starting_time = time(NULL);
-    //obj->S3FIFO_TIME_DELAY.current_time = time(NULL);
+    if(obj->S3FIFO_TIME_DELAY.starting_time != 0){
+        obj->S3FIFO_TIME_DELAY.current_time = time(NULL);
+    
+        //printf("Value of current time = %ld\n",obj->S3FIFO_TIME_DELAY.current_time);
+        //printf("Value of start time = %ld\n",obj->S3FIFO_TIME_DELAY.starting_time);
+        double time_diff = difftime(obj->S3FIFO_TIME_DELAY.current_time, obj->S3FIFO_TIME_DELAY.starting_time - 1);
+        //printf("Value of time_diff = %f\n",time_diff);
+        //printf("Value of obj id = %ld\n",obj->obj_id);
+        if(abs(time_diff) > 1){
+            //S3FIFO_TIME_DELAY_remove(params->main_cache, obj->obj_id);
+            cache_t *fifo = params->fifo;
+            bool removed = fifo->remove(fifo, req->obj_id/*params->req_local->obj_id*/);
+            assert(removed);
 
+            //printf("Remove Successful \n");
+        }
+    }
     return obj;
   }
 
@@ -242,27 +257,28 @@ static cache_obj_t *S3FIFO_TIME_DELAY_find(cache_t *cache, const request_t *req,
     // if object in fifo_ghost, remove will return true
     params->hit_on_ghost = true;
   }
-
+  
   obj = params->main_cache->find(params->main_cache, req, true);
   if (obj != NULL) {
     obj->S3FIFO_TIME_DELAY.freq += 1;
-    //obj->S3FIFO_TIME_DELAY.starting_time = time(NULL); //reset ttl to current time
-    //obj->S3FIFO_TIME_DELAY.current_time = time(NULL);
+    if(obj->S3FIFO_TIME_DELAY.starting_time != 0){
+        obj->S3FIFO_TIME_DELAY.current_time = time(NULL);
+    
+        //printf("Value of current time = %ld\n",obj->S3FIFO_TIME_DELAY.current_time);
+        //printf("Value of start time = %ld\n",obj->S3FIFO_TIME_DELAY.starting_time);
+        double time_diff = difftime(obj->S3FIFO_TIME_DELAY.current_time, obj->S3FIFO_TIME_DELAY.starting_time - 1);
+        //printf("Value of time_diff = %f\n",time_diff);
+        //printf("Value of obj id = %ld\n",obj->obj_id);
+        if(abs(time_diff) > 1){
+            //S3FIFO_TIME_DELAY_remove(params->main_cache, obj->obj_id);
+            cache_t *main = params->main_cache;
+            bool removed = main->remove(main, req->obj_id/*params->req_local->obj_id*/);
+            assert(removed);
 
-    //Check if current time is more than starting time by 5 seconds (my ttl)
-    // cache_t *main = params->main_cache;
-    // while(main->get_occupied_byte(main) > 0){
-    //     S3FIFO_TIME_DELAY_params_t *new_params = (S3FIFO_TIME_DELAY_params_t *)main->eviction_params;
-    //     cache_obj_t *obj2 = new_params->fifo->find(new_params->fifo, req, false);
-    //     time_t current_time = time(NULL);
-    //     obj2->S3FIFO_TIME_DELAY.current_time = current_time;
-
-    //     if(difftime(obj2->S3FIFO_TIME_DELAY.current_time, obj2->S3FIFO_TIME_DELAY.starting_time) > 5){
-    //         //If difference greater than 5 seconds, we should evict it
-    //         S3FIFO_TIME_DELAY_remove(main, obj2->obj_id);
-    //         printf("Evicted b/c of time");
-    //     }
-    // }
+            //printf("Remove Successful \n");
+        }
+    }
+    
   }
 
   return obj;
@@ -308,8 +324,10 @@ static cache_obj_t *S3FIFO_TIME_DELAY_insert(cache_t *cache, const request_t *re
 #endif
 
   obj->S3FIFO_TIME_DELAY.freq = 0;
-  //obj->S3FIFO_TIME_DELAY.starting_time = 0; 
-  //obj->S3FIFO_TIME_DELAY.current_time = 0;
+  obj->S3FIFO_TIME_DELAY.starting_time = time(NULL); 
+  obj->S3FIFO_TIME_DELAY.current_time = time(NULL);
+  //printf("Starting Time: %s\n", ctime(&(obj->S3FIFO_TIME_DELAY.starting_time)));
+  //printf("Current Time: %s\n", ctime(&(obj->S3FIFO_TIME_DELAY.current_time)));
   return obj;
 }
 

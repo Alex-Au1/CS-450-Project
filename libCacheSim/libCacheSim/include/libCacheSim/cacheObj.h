@@ -139,8 +139,8 @@ typedef struct {
   int64_t insertion_time;   // measured in number of objects inserted
   int64_t freq;
   int32_t main_insert_freq;
-  //int32_t starting_time; //Time when object was inserted
-  //int32_t current_time; //Current time I will use for subtraction
+  time_t starting_time; //Time when object was inserted
+  time_t current_time; //Current time I will use for subtraction
 } S3FIFO_TIME_DELAY_obj_metadata_t;
 
 typedef struct {
