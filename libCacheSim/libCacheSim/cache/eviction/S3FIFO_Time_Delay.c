@@ -22,7 +22,6 @@
 
 #include "../../dataStructure/hashtable/hashtable.h"
 #include "../../include/libCacheSim/evictionAlgo.h"
-#include <time.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -82,10 +81,6 @@ static void S3FIFO_TIME_DELAY_evict_main(cache_t *cache, const request_t *req);
 // ****                   end user facing functions                   ****
 // ****                                                               ****
 // ***********************************************************************
-
-static double time_decay_factor(int64_t age, double lambda) {
-    return exp(-lambda * age);
-}
 
 cache_t *S3FIFO_TIME_DELAY_init(const common_cache_params_t ccache_params,
                      const char *cache_specific_params) {
