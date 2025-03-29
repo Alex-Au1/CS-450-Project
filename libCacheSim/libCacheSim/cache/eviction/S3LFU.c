@@ -237,10 +237,10 @@ static cache_obj_t *S3LFU_find(cache_t *cache, const request_t *req,
   cache_obj_t *obj = params->LFU->find(params->LFU, req, true);
 
   if (obj != NULL) {
-    obj->S3FIFO.freq += 1;
+    obj->S3LFU.freq += 1;
 
     if (params->promote_on_hit &&
-        obj->S3FIFO.freq >= params->move_to_main_threshold) {
+        obj->S3LFU.freq >= params->move_to_main_threshold) {
       // move to main cache
 #if defined(TRACK_DEMOTION)
       printf("%ld keep %ld %ld\n", cache->n_req, obj->create_time,
@@ -260,7 +260,7 @@ static cache_obj_t *S3LFU_find(cache_t *cache, const request_t *req,
 
   obj = params->main_cache->find(params->main_cache, req, true);
   if (obj != NULL) {
-    obj->S3FIFO.freq += 1;
+    obj->S3LFU.freq += 1;
   }
 
   return obj;
@@ -303,7 +303,7 @@ static cache_obj_t *S3LFU_insert(cache_t *cache, const request_t *req) {
   obj->create_time = cache->n_req;
 #endif
 
-  obj->S3FIFO.freq == 0;
+  obj->S3LFU.freq == 0;
 
   return obj;
 }
@@ -336,7 +336,7 @@ static void S3LFU_evict_LFU(cache_t *cache, const request_t *req) {
     copy_cache_obj_to_request(params->req_local, obj_to_evict);
 
     if (!params->promote_on_hit &&
-        obj_to_evict->S3FIFO.freq >= params->move_to_main_threshold) {
+        obj_to_evict->S3LFU.freq >= params->move_to_main_threshold) {
       // move to main cache
 #if defined(TRACK_DEMOTION)
       printf("%ld keep %ld %ld\n", cache->n_req, obj_to_evict->create_time,

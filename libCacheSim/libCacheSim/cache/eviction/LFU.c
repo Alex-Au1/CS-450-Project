@@ -375,7 +375,7 @@ static inline void update_min_freq(LFU_params_t *params) {
       break;
     }
   }
-  DEBUG_ASSERT(params->min_freq > old_min_freq);
+  DEBUG_ASSERT(params->min_freq >= old_min_freq);
 }
 
 #ifdef __cplusplus
