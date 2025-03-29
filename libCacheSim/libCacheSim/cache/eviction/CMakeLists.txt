@@ -42,6 +42,7 @@ set(sourceC
         S3FIFOd2.c
         S4FIFO.c
         S3LFU.c
+        S3FIFO_Time_Delay.c
 )
 
 if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/priv")
