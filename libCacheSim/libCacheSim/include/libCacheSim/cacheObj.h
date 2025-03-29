@@ -136,6 +136,14 @@ typedef struct {
 } S3LFU_obj_metadata_t;
 
 typedef struct {
+  int64_t insertion_time;   // measured in number of objects inserted
+  int64_t freq;
+  int32_t main_insert_freq;
+  time_t starting_time; //Time when object was inserted
+  time_t current_time; //Current time I will use for subtraction
+} S3FIFO_TIME_DELAY_obj_metadata_t;
+
+typedef struct {
   int32_t freq;
 } __attribute__((packed)) Sieve_obj_params_t;
 
@@ -194,6 +202,7 @@ typedef struct cache_obj {
     S4FIFO_obj_metadata_t S4FIFO;
     S5FIFO_obj_metadata_t S5FIFO;
     S3LFU_obj_metadata_t S3LFU;
+    S3FIFO_TIME_DELAY_obj_metadata_t S3FIFO_TIME_DELAY;
     myclock_obj_params_t myclock;
     Sieve_obj_params_t sieve;
 
