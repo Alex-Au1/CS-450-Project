@@ -1,6 +1,17 @@
 import re
 import matplotlib.pyplot as plt
 
+plt.rcParams.update(
+    {
+        "font.size": 14,  # Increase overall font size
+        "axes.titlesize": 18,  # Title font size
+        "axes.labelsize": 16,  # X and Y label size
+        "xtick.labelsize": 12,  # X-axis tick label size
+        "ytick.labelsize": 12,  # Y-axis tick label size
+        "legend.fontsize": 12,  # Legend font size
+    }
+)
+
 # Simulating the full input text as if it were read from a file
 full_text = open("fiu_madmax_queue_ratios.txt", "r").read()
 num_series = 5
@@ -37,6 +48,8 @@ for ratio, values in all_data.items():
         marker="^" if i == 5 else ("s" if i == 6 else "o"),
         label=f"{ratio}",
         color="#e24f3e" if i == 5 else ("#e24f3e" if i == 6 else colors[i]),
+        linewidth=2.5,
+        markersize=8,
     )
     i += 1
 plt.xlabel("Cache Size (B)")
@@ -46,4 +59,6 @@ plt.legend()
 plt.grid(True)
 plt.xscale("log")
 plt.tight_layout()
-plt.savefig("plt.png")
+plt.savefig("plt_big.png")
+# plt.show()
+# plt.savefig("plt.png")
