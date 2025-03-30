@@ -40,6 +40,7 @@ set(sourceC
 
         S5FIFO.c
         S3FIFOd2.c
+        S3FIFOd3.c
         S4FIFO.c
         S3LFU.c
 )
