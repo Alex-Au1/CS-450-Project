@@ -43,6 +43,8 @@ def update_algo_name(algo):
         "S3FIFOd-Clock2-1": "S3-FIFO-D",
         "S3FIFOd2-Clock2-1": "S3-FIFO-DR",
         "S3LFU-lfu-1-0.1000-1": "S3-LFU",
+        "S3FIFO_TIME_DELAY-0.1000-2": "S3FIFO_TIME",
+        "S3FIFOd3-Clock2-1": "S3-FIFO-DR2"
 
 
         # "S3LRU-LRU-lru-0-0.1000-1":         "S3-LRU-LRU-L-1", 

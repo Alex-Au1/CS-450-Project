@@ -198,14 +198,14 @@ static void S3FIFOd_update_fifo_size(cache_t *cache, const request_t *req) {
   if (cond1 && cond2) {
     if (params->fifo_eviction_hit > params->main_eviction_hit * 2) {
       // if (params->main_cache->cache_size > step) {
-      if (params->main_cache->cache_size > cache->cache_size / 100) {
+      if (params->main_cache->cache_size > cache->cache_size / 100 && params->main_cache->cache_size > step) {
         params->fifo->cache_size += step;
         params->fifo_ghost->cache_size += step;
         params->main_cache->cache_size -= step;
       }
     } else if (params->main_eviction_hit > params->fifo_eviction_hit * 2) {
       // if (params->fifo->cache_size > step) {
-      if (params->fifo->cache_size > cache->cache_size / 100) {
+      if (params->fifo->cache_size > cache->cache_size / 100 && params->fifo->cache_size > step && params->fifo_ghost->cache_size > step) {
         params->fifo->cache_size -= step;
         params->fifo_ghost->cache_size -= step;
         params->main_cache->cache_size += step;
