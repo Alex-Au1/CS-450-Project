@@ -1,8 +1,0 @@
-result/fiu_webmail+online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size      549, 14294158 req, miss ratio 0.7781, byte miss ratio 0.7781
-result/fiu_webmail+online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     2745, 14294158 req, miss ratio 0.6721, byte miss ratio 0.6721
-result/fiu_webmail+online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     5491, 14294158 req, miss ratio 0.6612, byte miss ratio 0.6612
-result/fiu_webmail+online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    10983, 14294158 req, miss ratio 0.6467, byte miss ratio 0.6467
-result/fiu_webmail+online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    27458, 14294158 req, miss ratio 0.6155, byte miss ratio 0.6155
-result/fiu_webmail+online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    54917, 14294158 req, miss ratio 0.4183, byte miss ratio 0.4183
-result/fiu_webmail+online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size   109834, 14294158 req, miss ratio 0.2612, byte miss ratio 0.2612
-result/fiu_webmail+online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size   219669, 14294158 req, miss ratio 0.1785, byte miss ratio 0.1785

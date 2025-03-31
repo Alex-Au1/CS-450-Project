@@ -1,8 +1,0 @@
-result/fiu_casa-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size      325, 8973201 req, miss ratio 0.3240, byte miss ratio 0.3240
-result/fiu_casa-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     1629, 8973201 req, miss ratio 0.2547, byte miss ratio 0.2547
-result/fiu_casa-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     3258, 8973201 req, miss ratio 0.2337, byte miss ratio 0.2337
-result/fiu_casa-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     6516, 8973201 req, miss ratio 0.2155, byte miss ratio 0.2155
-result/fiu_casa-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    16292, 8973201 req, miss ratio 0.1916, byte miss ratio 0.1916
-result/fiu_casa-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    32584, 8973201 req, miss ratio 0.1737, byte miss ratio 0.1737
-result/fiu_casa-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    65168, 8973201 req, miss ratio 0.1141, byte miss ratio 0.1141
-result/fiu_casa-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size   130337, 8973201 req, miss ratio 0.0638, byte miss ratio 0.0638

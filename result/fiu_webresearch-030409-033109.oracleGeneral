@@ -1,8 +1,0 @@
-result/fiu_webresearch-030409-033109.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size       45, 3274061 req, miss ratio 0.7833, byte miss ratio 0.7833
-result/fiu_webresearch-030409-033109.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size      226, 3274061 req, miss ratio 0.6781, byte miss ratio 0.6781
-result/fiu_webresearch-030409-033109.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size      453, 3274061 req, miss ratio 0.6565, byte miss ratio 0.6565
-result/fiu_webresearch-030409-033109.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size      907, 3274061 req, miss ratio 0.6491, byte miss ratio 0.6491
-result/fiu_webresearch-030409-033109.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     2269, 3274061 req, miss ratio 0.6422, byte miss ratio 0.6422
-result/fiu_webresearch-030409-033109.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     4538, 3274061 req, miss ratio 0.6431, byte miss ratio 0.6431
-result/fiu_webresearch-030409-033109.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     9076, 3274061 req, miss ratio 0.6432, byte miss ratio 0.6432
-result/fiu_webresearch-030409-033109.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    18153, 3274061 req, miss ratio 0.4315, byte miss ratio 0.4315
