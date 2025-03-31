@@ -27,7 +27,11 @@ Algos = {
     # "S3FIFOd2-Clock2-1": "#99ff99",
     # "S3FIFOd3-Clock2-1": "#9999ff",
     "LRU": "#d1e5f0",
-    # "FIFO": "#e82ebd",
+    "LFU": "#ffccff",
+    # "FIFO": "#fddbc7",
+    "S3LFUFIFO-fifo-1-0.1000-1": "#99ff99",
+    "S3LRUlru-1-0.1000-2": "#9999ff",
+    "S3LRUFIFOfifo-1-0.1000-2": "#b2182b",
 }
 
 Datasets = [
