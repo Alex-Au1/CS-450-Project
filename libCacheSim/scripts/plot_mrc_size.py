@@ -134,34 +134,34 @@ def plot_mrc_size(
     first_size = int(list(mrc_dict.values())[0][0][0])
     size_unit, size_unit_str = find_unit_of_cache_size(first_size)
 
-    for algo, mrc in mrc_dict.items():
-        logger.debug(mrc)
+    # for algo, mrc in mrc_dict.items():
+    #     logger.debug(mrc)
 
-        plt.plot(
-            [x[0] / size_unit for x in mrc],
-            [x[1] for x in mrc],
-            linewidth=4,
-            #  marker=next(markers),
-            #  markersize=1,
-            linestyle=next(linestyles),
-            label=algo,
-        )
+    #     plt.plot(
+    #         [x[0] / size_unit for x in mrc],
+    #         [x[1] for x in mrc],
+    #         linewidth=4,
+    #         #  marker=next(markers),
+    #         #  markersize=1,
+    #         linestyle=next(linestyles),
+    #         label=algo,
+    #     )
 
-    if ignore_obj_size:
-        plt.xlabel("Cache Size")
-    else:
-        plt.xlabel("Cache Size ({})".format(size_unit_str))
-    plt.xscale("log")
-    plt.ylabel("Miss Ratio")
-    legend = plt.legend()
-    frame = legend.get_frame()
-    frame.set_facecolor("0.9")
-    frame.set_edgecolor("0.9")
-    plt.grid(linestyle="--")
-    plt.savefig("{}.pdf".format(name), bbox_inches="tight")
-    # plt.show()
-    plt.clf()
-    print("plot is saved to {}.pdf".format(name))
+    # if ignore_obj_size:
+    #     plt.xlabel("Cache Size")
+    # else:
+    #     plt.xlabel("Cache Size ({})".format(size_unit_str))
+    # plt.xscale("log")
+    # plt.ylabel("Miss Ratio")
+    # legend = plt.legend()
+    # frame = legend.get_frame()
+    # frame.set_facecolor("0.9")
+    # frame.set_edgecolor("0.9")
+    # plt.grid(linestyle="--")
+    # plt.savefig("{}.pdf".format(name), bbox_inches="tight")
+    # # plt.show()
+    # plt.clf()
+    # print("plot is saved to {}.pdf".format(name))
 
 
 def run():
@@ -173,7 +173,9 @@ def run():
     import glob
 
     cachesim_path = "/proj/redundancy-PG0/jason/libCacheSim/_build/cachesim"
-    algos = "fifo,s5fifo,s4fifo,s3fifo,s3lfu,lfu,lru"
+    # algos = "fifo,lfu,lru,s5fifo,s3fifo_time_delay,s3fifo,s3lfu,s3lfufifo,s3lru,s3lrufifo"
+    algos = "fifo,lfu,lru,s3fifo,s3lfu,s3lfufifo,s3lru,s3lrufifo"
+
     cache_sizes = "0.01,0.02,0.05,0.075,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.5,0.6,0.7,0.8"
 
     for tracepath in glob.glob("/disk/data/*.zst"):
@@ -192,7 +194,8 @@ def run():
 
 if __name__ == "__main__":
     default_args = {
-        "algos": "fifo,s5fifo,s4fifo,s3fifo,s3lfu,lfu,lru",
+        # "algos": "fifo,lfu,lru,s5fifo,s3fifo_time_delay,s3fifo,s3lfu,s3lfufifo,s3lru,s3lrufifo",
+        "algos": "fifo,lfu,lru,s5fifo,s4fifo,s3_tims3fifo,s3lfu,s3lfufifo,s3lru,s3lrufifo",
         "sizes": "0.001,0.005,0.01,0.02,0.05,0.10,0.20,0.40",
     }
     import argparse
