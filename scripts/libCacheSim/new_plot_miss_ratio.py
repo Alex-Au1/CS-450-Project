@@ -21,10 +21,10 @@ Algos = {
     "S3FIFO-0.1000-2": "#ef8a62",
     # "S4FIFO-0.1000-2": "#67a9cf",
     # "S5FIFO-0.1000-2": "#b2182b",
-    # "S3LFUs-lfu-1-0.1000-1": "#009999",
+    "S3LFU-lfu-1-0.1000-1": "#009999",
     # "S3FIFO_TIME_DELAY-0.1000-2": "#ffccff",
-    "S3FIFOd-Clock2-1": "#fddbc7",
-    "S3FIFOd2-Clock2-1": "#99ff99",
+    # "S3FIFOd-Clock2-1": "#fddbc7",
+    # "S3FIFOd2-Clock2-1": "#99ff99",
     # "S3FIFOd3-Clock2-1": "#9999ff",
     "LRU": "#d1e5f0",
     # "FIFO": "#e82ebd",
@@ -33,9 +33,9 @@ Algos = {
 Datasets = [
     "FIU",
     "MSR",
-    "Cloudphysics",
-    "AlibabaBlock",
-    "TencentBlock"
+    # "Cloudphysics",
+    # "AlibabaBlock",
+    # "TencentBlock"
 ]
 
 # ===========================================

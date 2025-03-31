@@ -1,0 +1,8 @@
+result/msr_web_2.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     1321, 5175368 req, miss ratio 0.9961, byte miss ratio 0.9961
+result/msr_web_2.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     6606, 5175368 req, miss ratio 0.9961, byte miss ratio 0.9961
+result/msr_web_2.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    13212, 5175368 req, miss ratio 0.9961, byte miss ratio 0.9961
+result/msr_web_2.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    26425, 5175368 req, miss ratio 0.9961, byte miss ratio 0.9961
+result/msr_web_2.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    66063, 5175368 req, miss ratio 0.9902, byte miss ratio 0.9902
+result/msr_web_2.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size   132127, 5175368 req, miss ratio 0.9925, byte miss ratio 0.9925
+result/msr_web_2.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size   264254, 5175368 req, miss ratio 0.9921, byte miss ratio 0.9921
+result/msr_web_2.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size   528508, 5175368 req, miss ratio 0.6467, byte miss ratio 0.6467

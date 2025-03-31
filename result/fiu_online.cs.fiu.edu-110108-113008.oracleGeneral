@@ -1,0 +1,8 @@
+result/fiu_online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size      196, 5700499 req, miss ratio 0.8524, byte miss ratio 0.8524
+result/fiu_online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size      984, 5700499 req, miss ratio 0.8212, byte miss ratio 0.8212
+result/fiu_online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     1968, 5700499 req, miss ratio 0.8135, byte miss ratio 0.8135
+result/fiu_online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     3936, 5700499 req, miss ratio 0.8033, byte miss ratio 0.8033
+result/fiu_online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     9840, 5700499 req, miss ratio 0.7555, byte miss ratio 0.7555
+result/fiu_online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    19681, 5700499 req, miss ratio 0.6691, byte miss ratio 0.6691
+result/fiu_online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    39362, 5700499 req, miss ratio 0.3582, byte miss ratio 0.3582
+result/fiu_online.cs.fiu.edu-110108-113008.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    78724, 5700499 req, miss ratio 0.2527, byte miss ratio 0.2527

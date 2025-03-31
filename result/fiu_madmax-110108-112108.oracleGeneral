@@ -1,0 +1,8 @@
+result/fiu_madmax-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size       69, 918010 req, miss ratio 0.8811, byte miss ratio 0.8811
+result/fiu_madmax-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size      349, 918010 req, miss ratio 0.8545, byte miss ratio 0.8545
+result/fiu_madmax-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size      699, 918010 req, miss ratio 0.8517, byte miss ratio 0.8517
+result/fiu_madmax-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     1399, 918010 req, miss ratio 0.8441, byte miss ratio 0.8441
+result/fiu_madmax-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     3498, 918010 req, miss ratio 0.8369, byte miss ratio 0.8369
+result/fiu_madmax-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size     6996, 918010 req, miss ratio 0.8316, byte miss ratio 0.8316
+result/fiu_madmax-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    13993, 918010 req, miss ratio 0.6718, byte miss ratio 0.6718
+result/fiu_madmax-110108-112108.oracleGeneral         S3LRUFIFOfifo-1-0.1000-2 cache size    27986, 918010 req, miss ratio 0.4962, byte miss ratio 0.4962
