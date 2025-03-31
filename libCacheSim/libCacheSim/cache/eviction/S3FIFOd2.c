@@ -215,7 +215,7 @@ static void S3FIFOd2_update_fifo_size(cache_t *cache, const request_t *req) {
       step_ratio = MIN(10.0, ((double)(params->main_eviction_hit) / MAX(1, params->fifo_eviction_hit)) - 1);
       step = MAX(1.0, MIN(params->fifo->cache_size, params->main_cache->cache_size) / 1000.0 * step_ratio);
 
-      if (params->fifo->cache_size > cache->cache_size / 100 && params->fifo->cache_size > step) {
+      if (params->fifo->cache_size > cache->cache_size / 100 && params->fifo->cache_size > step && params->fifo_ghost->cache_size > step) {
         params->fifo->cache_size -= step;
         params->fifo_ghost->cache_size -= step;
         params->main_cache->cache_size += step;

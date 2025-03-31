@@ -19,10 +19,13 @@ logger.setLevel(logging.INFO)
 # comment out the algorithms, datasets that should not be included in plot
 Algos = {
     "S3FIFO-0.1000-2": "#ef8a62",
-    "S4FIFO-0.1000-2": "#67a9cf",
-    "S5FIFO-0.1000-2": "#b2182b",
-    # "S3FIFOd-Clock2-1": "#fddbc7",
-    # "S3FIFOd2-Clock2-1": "#f7f7f7",
+    # "S4FIFO-0.1000-2": "#67a9cf",
+    # "S5FIFO-0.1000-2": "#b2182b",
+    # "S3LFUs-lfu-1-0.1000-1": "#009999",
+    # "S3FIFO_TIME_DELAY-0.1000-2": "#ffccff",
+    "S3FIFOd-Clock2-1": "#fddbc7",
+    "S3FIFOd2-Clock2-1": "#99ff99",
+    # "S3FIFOd3-Clock2-1": "#9999ff",
     "LRU": "#d1e5f0",
     # "FIFO": "#e82ebd",
 }
@@ -30,8 +33,9 @@ Algos = {
 Datasets = [
     "FIU",
     "MSR",
-    # "Cloudphysics",
-    # "AlibabaBlock"
+    "Cloudphysics",
+    "AlibabaBlock",
+    "TencentBlock"
 ]
 
 # ===========================================
@@ -50,7 +54,7 @@ def plot_scatter(datapath, size_idx=0, metric="miss_ratio"):
     datasets = Datasets
 
     dataset_to_mr_reduction = {}
-    plt.figure(figsize=(28, 10.8))
+    plt.figure(figsize=(30, 10.8))
     for dataset in datasets:
         mr_reduction_dict_list = load_miss_ratio_reduction_from_dir(
             "{}/{}".format(datapath, dataset), algo_list, metric
