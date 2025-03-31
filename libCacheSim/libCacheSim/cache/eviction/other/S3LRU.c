@@ -44,7 +44,7 @@ typedef struct {
 
 static const char *DEFAULT_CACHE_PARAMS =
     "LRU-size-ratio=0.10,ghost-size-ratio=0.90,promote-on-hit=1,main-cache-"
-    "type=lru,move-to-main-threshold=1";
+    "type=lru,move-to-main-threshold=2";
 
 // ***********************************************************************
 // ****                                                               ****
@@ -115,8 +115,8 @@ cache_t *S3LRU_init(const common_cache_params_t ccache_params,
 
   common_cache_params_t ccache_params_local = ccache_params;
   ccache_params_local.cache_size = LRU_cache_size;
-  // params->LRU = LRU_init(ccache_params_local, NULL);
-  params->LRU = FIFO_init(ccache_params_local, NULL);
+  params->LRU = LRU_init(ccache_params_local, NULL);
+  // params->LRU = FIFO_init(ccache_params_local, NULL);
 
   if (LRU_ghost_cache_size > 0) {
     ccache_params_local.cache_size = LRU_ghost_cache_size;
@@ -146,7 +146,7 @@ cache_t *S3LRU_init(const common_cache_params_t ccache_params,
   params->main_cache->track_eviction_age = false;
 #endif
 
-  snprintf(cache->cache_name, CACHE_NAME_ARRAY_LEN, "S3LRU-FIFO-%s-%d-%.4lf-%d",
+  snprintf(cache->cache_name, CACHE_NAME_ARRAY_LEN, "S3LRU%s-%d-%.4lf-%d",
            params->main_cache_type, params->promote_on_hit,
            params->LRU_size_ratio, params->move_to_main_threshold);
 
